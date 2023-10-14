@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="th">
+
+<head>
+    <title>End credits</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <a href="#" name="cre">Click</a>
+    <div id="title">
+        <div id="credits">
+            <div id="the-end">End Credits</div>
+            <br />
+            <h1>Presentted by</h1>
+            <p>นายอานนท์ อุตทาสา</p>
+            <h1>Spacial Thanks</h1>
+            <p> ก่อนอื่นเลยผมต้องขอขอบคุณอาจารย์ ขอบคุณคณะกรรมการที่อ่านแฟ้มสะสมผลงานของกระผมจนจบ ผลงานชิ้นนี้เป็นอีกผลงานชิ้นหนึ่งของผมเอง ถึงแม้จะเป็นผลงานที่ไม่ค่อยสมบูรณ์แต่เป็นผลงานที่กระผมตั้งใจทำ</p>
+            <h1>Inspiration from</h1>
+            <p>Daeng Coding</p>
+            <h1>Cast</h1>
+            <dl>
+                <dt>ผู้สนับสนุน</dt>
+                <dd>นายมานะ มะสิน</dd>
+                <p>ผู้อำนวยการโรงเรียนบึงสามพันวิทยาคม</p>
+                <dt>ครูที่ปรึกษาและให้คำแนะนำ</dt>
+                <dd>ครูเบญจมาศ ทองนุ่ม</dd>
+                <dd>ครูกรรณิการ์ ศรีจันดา</dd>
+                <dd>ครูนภาวดี สิงห์จีน</dd>
+                <dt>ผู้มอบโอกาศในการสร้างผลงาน</dt>
+                <dd>ครูเบญจมาศ ทองนุ่ม</dd>
+                <dt>เพื่อนผู้ให้คำแนะนำ</dt>
+                <dd>นางสาวบุญญาพร ต่ายเพ็ง</dd>
+                <dd>นางสาวเจริญ สีกุด</dd>
+                <dt>พัฒนาโดย</dt>
+                <dd>นายอานนท์ อุตทาสา</dd>
+                
+            </dl>
+            
+            <h1>Spacial Thanks</h1>
+            <p> ผมขอขอบคุณทุกๆคำแนะนำจากคุณครู ขอบคุณสำหรับโอกาสให้ผมได้การสร้างผลงาน ขอบคุณคำแนะนำจากเพื่อนๆ ขอบคุณมากๆครับสำหรับทุกๆความปรารถนาดี</p>
+            <h1>Develope Using</h1>
+            <p>
+                <img src="html5.png" alt=""> <img src="css3.png" alt=""> <img src="jquery.png" alt=""> <img src="Thaimooc.png" alt=""> <img src="Programming Hub2.PNG" alt="">
+            </p>
+            
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('a[name=cre]').click(function (e){
+                    e.preventDefault();
+
+                    var maskHeight = $(document).height();
+                    var maskWidth = $(document).width();
+
+                    $('#title').css({
+                        'width' : maskWidth,
+                        'height' : maskHeight
+                    });
+
+                    $('#title').fadeIn(1000)
+                    $('#title').fadeTo("slow")
+                    $('#title').fadeIn();
+                    $('#credits').css("left", (($('credits').parent().width() - $('credits').outerWidth()) / 2) + "px");
+                    $('#credits').css("bottom", ".." + (maskHeight * 3) + "px");
+                    $('#credits').show('slow');
+                    $('#credits').animate({
+                        bottom: maskHeight + "px"
+                    }, {
+                        duration:30000,
+                        complete: function(){
+                            $('title').fadeOut();
+                            $('.wimdow').fadeOut();
+                            $('#credits').css("bottom", ".." + (maskHeight * 2) + "px");
+                        },
+                        step: function (n,t){
+                            var pos = $(this).position();
+                            console.log('X: ' + pos.left.toFixed(2) + 'Y: ' + pos.top.toFixed(2));
+                        }
+                    });
+                });
+            });
+
+        </script>
+    </div>    
+</body>
+</html>
